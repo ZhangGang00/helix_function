@@ -48,12 +48,12 @@ void global_chi2(TString input)
         TMinuit minuit(npar);
         minuit.SetFCN(helix_fit);
 	// minuit.DefineParameter(i, parName[i].c_str(), par[i], stepSize[i], minVal[i], maxVal[i])
-	minuit.DefineParameter(0,"R",1e6,1e4,1e4,1e7);
-	minuit.DefineParameter(1,"x0",0,1,-100,100);
-	minuit.DefineParameter(2,"y0",0,1,-100,100);
-	if (charge==1) minuit.DefineParameter(3,"phi0",0,0.01,-Pi/2,Pi/2);
-          else minuit.DefineParameter(3,"phi0",3*Pi/4,0.01,Pi/2,3*Pi/2);
-	minuit.DefineParameter(4,"lambda",0,0.01,-Pi,Pi);
+	minuit.DefineParameter(0,"R",1e6,1e4,1e4,1e8);
+	minuit.DefineParameter(1,"x0",0,0.01,-100,100);
+	minuit.DefineParameter(2,"y0",0,0.01,-100,100);
+	if (charge==1) minuit.DefineParameter(3,"phi0",0,0.0001,-Pi/2,Pi/2);
+          else minuit.DefineParameter(3,"phi0",3*Pi/4,0.0001,Pi/2,3*Pi/2);
+	minuit.DefineParameter(4,"lambda",0,0.0001,-Pi,Pi);
 	minuit.SetErrorDef(1);             
         minuit.SetMaxIterations(1000000);
         minuit.SetPrintLevel(1); //-1 no output, 1 standard output
